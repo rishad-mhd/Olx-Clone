@@ -27,7 +27,7 @@
 
 .moreView .cards {
   white-space: nowrap;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
 }
 
@@ -39,6 +39,20 @@
   height: 270px;
   display: inline-block;
   cursor: pointer;
+}
+
+.cards::-webkit-scrollbar {
+  width: 10px;
+}
+
+.cards::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 .card .favorite {
@@ -85,3 +99,5 @@
   font-size: 24px;
   color: #002f34;
 }
+
+

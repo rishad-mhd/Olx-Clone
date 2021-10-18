@@ -13,6 +13,10 @@
   align-items: center;
 }
 
+.brandName{
+  cursor: pointer;
+}
+
 .placeSearch {
   width: 16em;
   height: 48px;
@@ -24,7 +28,7 @@
   background-color: white;
 }
 
-.placeSearch ::selection {
+.placeSearch::selection {
   border-color: #23e5db;
   outline-color: #23e5db;
 }
@@ -92,9 +96,35 @@
   text-overflow: ellipsis;
   font-weight: bolder;
   margin-right: 5px;
+  cursor: pointer;
+  
 }
 
-.language svg {
+.arrow {
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.arrow span {
+  /* justify-content: space-between;
+  align-items: center; */
+  font-size: 15px;
+  white-space: normal;
+  text-overflow: ellipsis;
+  font-weight: bolder;
+  margin-right: 5px;
+  cursor: pointer;
+  
+}
+.language .arrow-svg{
+  transition: .5s;
+}
+
+
+.arrow .arrow-svg{
+  transform: rotate(180deg);
+  transition: .5s;
 }
 
 .span {
@@ -104,6 +134,29 @@
   text-overflow: ellipsis;
   font-weight: bolder;
   margin-right: 5px;
+}
+
+.loginPage{
+  position: relative;
+  display: inline-block;
+}
+
+.logout{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.loginPage:hover .logout {
+  display: block;
+}
+.loginPage:hover hr{
+  display: none;
 }
 
 .loginPage hr {
@@ -161,4 +214,31 @@
   .sellMenu {
     display: none;
   }
+}
+
+.language-list{
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    padding: 12px 16px;
+    z-index: 1;
+    display: none;
+    margin-top: 16em;
+}
+
+.arrow .language-list{
+  display: block;
+}
+.language-list span{
+  padding: 2em;
+}
+.language-list-item{
+  display: flex;
+  
+  float: left;
+}
+.tick{
+  margin-top: -3.5em;
+  margin-left: 10em;
+  float: right;
 }

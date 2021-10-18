@@ -16,10 +16,18 @@
   font-weight: bolder;
 }
 
-.bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions {
+.bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions .quickOption{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
+
 .bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions span {
   padding: 10px;
+}
+
+.bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions .quickOption:hover{
+  color:#0098a3
 }
 
 .bannerChildDiv .banner {

@@ -5,9 +5,10 @@
 .viewParentDiv .imageShowDiv {
   padding: 16px;
   width: 70vw;
+  text-align: center;
 }
 .viewParentDiv .imageShowDiv img {
-  width: 65vw;
+  width: auto;
   height: 85vh;
 }
 

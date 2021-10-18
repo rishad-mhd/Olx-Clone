@@ -7,8 +7,9 @@ export default function Arrow() {
         height="24px"
         viewBox="0 0 1024 1024"
         data-aut-id="icon"
-        className
+        className="arrow-svg"
         fillRule="evenodd"
+        type='checkbox'
       >
         <path
           className="rui-77aaa"
