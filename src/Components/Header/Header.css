@@ -2,7 +2,7 @@
   padding: 10px;
   background-color: whitesmoke;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   z-index: 999;
   padding-left: 8%;
   padding-right: 8%;
@@ -158,6 +158,9 @@
 
 .loginPage:hover .logout {
   display: block;
+}
+.loginPage:hover{
+  padding-bottom: 3px;
 }
 .loginPage:hover hr{
   display: none;

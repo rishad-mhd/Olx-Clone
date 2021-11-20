@@ -3,7 +3,7 @@
     width: max-content;
     padding: 50px;
     position: absolute;
-    top: 65%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 6px;
@@ -30,3 +30,9 @@
     border: 2px solid #002f34;
   }
   
+@media only screen and (max-width:700px){
+  .centerDiv {
+    /* padding: 35px; */
+    width: 90%;
+  }
+}

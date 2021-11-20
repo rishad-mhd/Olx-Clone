@@ -1,6 +1,5 @@
 import React, { Fragment, useContext, useState } from 'react';
 import './Create.css';
-import Header from '../Header/Header';
 import { FirebaseContext, authContext } from '../../store/Context'
 import Loading from '../Loading/Loading';
 import { useHistory } from 'react-router-dom'
@@ -48,7 +47,6 @@ const Create = () => {
 
   return (
     <Fragment>
-      <Header />
       <card>
         <div className="centerDiv">
           {error && <LoginError value="Please fill out the form completely" />}

@@ -8,9 +8,9 @@
   text-align: center;
 }
 .viewParentDiv .imageShowDiv img {
-  height: 85vh;
-  width: auto;
+  max-width: 100%;
   text-align: center;
+  min-height: 35em;
 }
 
 .viewParentDiv .rightSection {
@@ -49,4 +49,19 @@
   color: #002f34;
   font-weight: 400;
   padding: 0;
+}
+
+@media only screen and (max-width:700px){
+  .viewParentDiv{
+    display: block;
+  }
+  .viewParentDiv .rightSection{
+    width: auto;
+  }
+  .viewParentDiv .imageShowDiv{
+    width: auto;
+  }
+  .viewParentDiv .imageShowDiv img{
+    min-height: auto;
+  }
 }

@@ -22,6 +22,9 @@
   font-size: 14px;
   color: #002f34;
 }
+.moreView .heading .view-more{
+  cursor: pointer;
+}
 
 .recommendations .cards {
   display: flex;

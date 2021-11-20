@@ -37,7 +37,9 @@ function FreshRecomendation() {
                             <div onClick={() => {
                                 setPostDetails(product)
                                 history.push(`/view/${product.id}`)
-                            }} className="card">
+                            }}
+                                key={product.id}
+                                className="card">
                                 <div className="favorite">
                                     <Heart />
                                 </div>
