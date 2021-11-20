@@ -16,30 +16,30 @@ const Create = () => {
   const [image, setImage] = useState()
   const date = new Date()
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleSubmit = () => {
     if (image && name && category && price) {
       setLoading(true)
-      firebase.storage().ref(`/image/${image.name,date.toDateString()}`).put(image).then(({ ref }) => {
+      firebase.storage().ref(`/image/${image.name, date}`).put(image).then(({ ref }) => {
         ref.getDownloadURL().then((url) => {
           console.log(url);
           firebase.firestore().collection('products').add({
-            name,
-            category,
-            price,
-            url,
-            userId: user.uid,
-            createdAt: date.toDateString()
-          }).then(() => {
-            setLoading(false)
-            history.push('/')
-          }).catch((err)=>{
-            console.log(err);
-          })
+              name,
+              category,
+              price,
+              url,
+              userId: user.uid,
+              createdAt: date.toDateString()
+            }).then(() => {
+              setLoading(false)
+              history.push('/')
+            }).catch((err) => {
+              console.log(err);
+            })
         })
       })
-    }else{
+    } else {
       setLoading(false)
       setError(true)
       console.log("error");
@@ -50,67 +50,67 @@ const Create = () => {
     <Fragment>
       <Header />
       <card>
-          <div className="centerDiv">
-            {error&&<LoginError value="Please fill out the form completely"/>}
-            <label htmlFor="fname">Name</label>
-            <br />
-            <input
-              className="input"
-              type="text"
-              value={name}
-              id="fname"
-              name="Name"
-              placeholder="IPHONE"
-              onChange={(e) => {
-                setName(e.target.value)
-              }}
-            />
-            <br />
-            <label htmlFor="fname">Category</label>
-            <br />
-            <select
-              className="input"
-              value={category}
-              id="fname"
-              name="category"
-              onChange={(e) => {
-                setCategory(e.target.value)
-              }}
-            >
-              <option value="" disabled>Select Category</option>
-              <option value="Cars">Cars</option>
-              <option value="Motorcycles">Motorcycles</option>
-              <option value="Mobiles">Mobiles</option>
-              <option value="For Sale:Houses & Apartments">For Sale:Houses & Apartments</option>
-              <option value="Scooter">Scooter</option>
-              <option value="Commercial & Other Vehicles">Commercial & Other Vehicles</option>
-              <option value="For Rent: House & Apartments">For Rent: House & Apartments</option>
-            </select>
-            <br />
-            <label htmlFor="fname">Price</label>
-            <br />
-            <input
-              className="input"
-              type="number"
-              value={price}
-              id="fname"
-              name="Price"
-              placeholder="100000"
-              onChange={(e) => {
-                setPrice(e.target.value)
-              }}
-            />
-            <br />
-            <br />
-            <img alt="Posts" width="200px" height="200px" src={image ? URL.createObjectURL(image) : ""}></img>
-            <br />
-            <input onChange={(e) => {
-              setImage(e.target.files[0])
-            }} type="file" required />
-            <br />
-            <button onClick={handleSubmit} className="uploadBtn">upload and Submit</button>
-            {loading && <Loading />}
-          </div>
+        <div className="centerDiv">
+          {error && <LoginError value="Please fill out the form completely" />}
+          <label htmlFor="fname">Name</label>
+          <br />
+          <input
+            className="input"
+            type="text"
+            value={name}
+            id="fname"
+            name="Name"
+            placeholder="IPHONE"
+            onChange={(e) => {
+              setName(e.target.value)
+            }}
+          />
+          <br />
+          <label htmlFor="fname">Category</label>
+          <br />
+          <select
+            className="input"
+            value={category}
+            id="fname"
+            name="category"
+            onChange={(e) => {
+              setCategory(e.target.value)
+            }}
+          >
+            <option value="" disabled>Select Category</option>
+            <option value="Cars">Cars</option>
+            <option value="Motorcycles">Motorcycles</option>
+            <option value="Mobiles">Mobiles</option>
+            <option value="For Sale:Houses & Apartments">For Sale:Houses & Apartments</option>
+            <option value="Scooter">Scooter</option>
+            <option value="Commercial & Other Vehicles">Commercial & Other Vehicles</option>
+            <option value="For Rent: House & Apartments">For Rent: House & Apartments</option>
+          </select>
+          <br />
+          <label htmlFor="fname">Price</label>
+          <br />
+          <input
+            className="input"
+            type="number"
+            value={price}
+            id="fname"
+            name="Price"
+            placeholder="100000"
+            onChange={(e) => {
+              setPrice(e.target.value)
+            }}
+          />
+          <br />
+          <br />
+          <img alt="Posts" width="200px" height="200px" src={image ? URL.createObjectURL(image) : ""}></img>
+          <br />
+          <input onChange={(e) => {
+            setImage(e.target.files[0])
+          }} type="file" required />
+          <br />
+          <button onClick={handleSubmit} className="uploadBtn">upload and Submit</button>
+          {loading && <Loading />}
+        </div>
       </card>
     </Fragment>
   );

@@ -1,5 +1,5 @@
 .footerParentDiv {
-  width: 100vw;
+  width: 100%;
 }
 .footerParentDiv .content {
   display: flex;
@@ -24,4 +24,13 @@
 
 .footerParentDiv .footer p {
   margin: 0;
+}
+
+@media only screen and ( max-width :700px){
+  .footerParentDiv .content{
+    display: block;
+  }
+  .footerParentDiv .footer{
+    display: block;
+  }
 }

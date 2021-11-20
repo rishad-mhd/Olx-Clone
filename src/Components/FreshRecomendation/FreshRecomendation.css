@@ -1,0 +1,22 @@
+ .recomendations {
+    margin: 16px 16px 24px;
+    margin-left: 8%;
+  }
+  .load-more-button{
+    text-align: center;
+    margin-top: 1em;
+    
+  }
+  .load-more-button button{
+    padding: 10px 8px 10px 8px;
+    border-radius: 4px;
+    background: white;
+    color: #002f34;
+    border: 2px solid #002f34;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .load-more-button button:hover{
+    border: 4px solid #002f34;
+    padding: 8px 6px 8px 6px;
+  }

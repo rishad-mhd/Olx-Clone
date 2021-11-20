@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react';
+import React, { useContext,useEffect,useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
@@ -14,7 +14,6 @@ function Header() {
   const { user } = useContext(authContext)
   const { firebase } = useContext(FirebaseContext)
   const [arrow,setArrow] = useState("")
-
   const changeArrowStyle=()=>{
     if(arrow==""){
       setArrow("arrow")
@@ -53,7 +52,8 @@ function Header() {
           <Arrow></Arrow>
           </div>
           <div className="language-list">
-            <span className="language-list-item">English</span><TickMark/> 
+            <span className="language-list-item">English</span>
+            <TickMark/> 
             <br />
             <span className="language-list-item">हिन्दी</span>
           </div>

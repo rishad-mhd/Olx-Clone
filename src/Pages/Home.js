@@ -5,7 +5,7 @@ import Banner from '../Components/Banner/Banner';
 
 import Posts from '../Components/Posts/Posts';
 import Footer from '../Components/Footer/Footer';
-import Category from '../Components/Category/Category';
+import FreshRecomendation from '../Components/FreshRecomendation/FreshRecomendation';
 
 
 function Home(props) {
@@ -14,7 +14,7 @@ function Home(props) {
       <Header />
       <Banner />
       <Posts />
-      <Category value="Cars"/>
+      <FreshRecomendation/>
       <Footer />
     </div>
   );

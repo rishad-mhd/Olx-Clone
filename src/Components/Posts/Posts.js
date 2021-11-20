@@ -13,8 +13,9 @@ function Posts() {
   const [loading, setLoading] = useState(true)
   const history = useHistory()
   const { setPostDetails } = useContext(PostContext)
+  const today=new Date()
   useEffect(() => {
-    firebase.firestore().collection('products').get().then((snapshot) => {
+    firebase.firestore().collection('products').limit(6).get().then((snapshot) => {
       const allPost = snapshot.docs.map((product) => {
         return {
           ...product.data(),
@@ -29,15 +30,14 @@ function Posts() {
     <div className="postParentDiv">
       <div className="moreView">
         <div className="heading">
-          <span>Quick Menu</span>
+          <span>Quick Menu{loading && <Loading/>}</span>
           <span>View more</span>
         </div>
         <div className="cards">
-          {!loading ? products.map(products => {
-
+          {products.map(products => {
             return <div onClick={(e) => {
               setPostDetails(products)
-              history.push('/view')
+              history.push(`/view/${products.id}`)
             }}
               className="card"
             >
@@ -56,7 +56,7 @@ function Posts() {
                 <span>{products.createdAt}</span>
               </div>
             </div>
-          }) : <Loading />}
+          })}
         </div>
       </div>
       

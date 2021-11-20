@@ -8,14 +8,15 @@
   text-align: center;
 }
 .viewParentDiv .imageShowDiv img {
-  width: auto;
   height: 85vh;
+  width: auto;
+  text-align: center;
 }
 
 .viewParentDiv .rightSection {
   padding: 16px;
   margin-top: 3em;
-  width: 30vw;
+  width: 30em;
 }
 
 .viewParentDiv .rightSection .productDetails :first-child {

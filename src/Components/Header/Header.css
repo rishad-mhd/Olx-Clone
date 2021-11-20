@@ -4,6 +4,8 @@
   position: fixed;
   width: 100vw;
   z-index: 999;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 
 .headerChildDiv {
@@ -86,6 +88,7 @@
   height: 48px;
   display: flex;
   align-items: center;
+  min-width: 7em;
 }
 
 .language span {
@@ -104,6 +107,7 @@
   height: 48px;
   display: flex;
   align-items: center;
+  min-width: 7em;
 }
 
 .arrow span {
