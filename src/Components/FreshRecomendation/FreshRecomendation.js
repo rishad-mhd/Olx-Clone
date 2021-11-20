@@ -1,15 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import Heart from '../../assets/Heart'
-import { FirebaseContext } from '../../store/Context'
+import SellButton from '../../assets/SellButton'
+import SellButtonPlus from '../../assets/SellButtonPlus'
+import { authContext, FirebaseContext } from '../../store/Context'
 import { PostContext } from '../../store/PostContext'
 import './FreshRecomendation.css'
 
 function FreshRecomendation() {
     const { firebase } = useContext(FirebaseContext)
     const [products, setProducts] = useState([])
-    const [limit,setLimit] = useState(10)
-    const {setPostDetails} = useContext(PostContext)
+    const [limit, setLimit] = useState(10)
+    const { setPostDetails } = useContext(PostContext)
+    const { user } = useContext(authContext)
     const history = useHistory()
     useEffect(() => {
         firebase.firestore().collection('products').limit(limit).get().then((snapshot) => {
@@ -31,7 +34,7 @@ function FreshRecomendation() {
                 <div className="cards">
                     {products.map(product => {
                         return (
-                            <div onClick={()=>{
+                            <div onClick={() => {
                                 setPostDetails(product)
                                 history.push(`/view/${product.id}`)
                             }} className="card">
@@ -54,10 +57,24 @@ function FreshRecomendation() {
                     })}
                 </div>
                 <div className="load-more-button">
-                    <button onClick={(e)=>{
+                    <button onClick={(e) => {
                         e.preventDefault()
-                        setLimit(limit+10)
-                        }}>Load more</button>
+                        setLimit(limit + 10)
+                    }}>Load more</button>
+                </div>
+                <div onClick={(e) => {
+                    e.preventDefault()
+                    if (user) {
+                        history.push('/create')
+                    } else {
+                        history.push('/login')
+                    }
+                }} className="sellMenu">
+                    <SellButton></SellButton>
+                    <div className="sellMenuContent">
+                        <SellButtonPlus></SellButtonPlus>
+                        <span>SELL</span>
+                    </div>
                 </div>
             </div>
         </div>
